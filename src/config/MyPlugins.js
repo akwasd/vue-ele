@@ -1,11 +1,9 @@
 var plugins = {
-  setLocal:function(obj) {
-    for( var k in obj ) {
-      window.localStorage.setItem(k,obj[k])
-    }
+  setLocal:function(k,v) {
+    window.localStorage.setItem(k,JSON.stringify(v))
   },
   getLocal:function(item) {
-    window.localStorage.getItem(item)
+    return (JSON.parse(window.localStorage.getItem(item)))
   }
 }
 const MyPlugins = {
@@ -15,3 +13,4 @@ const MyPlugins = {
     }
   }
 }
+export default MyPlugins
